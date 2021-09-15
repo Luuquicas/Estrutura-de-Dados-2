@@ -15,7 +15,7 @@ void printNum(int n){
 }
 
 int main(){
-    int num = 100;
+    int num = 5;
     printNum(num);
     return 0;
 }
