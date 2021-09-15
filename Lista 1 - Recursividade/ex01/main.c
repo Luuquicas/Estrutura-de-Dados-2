@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+/**
+ * Crie uma função recursiva que receba um número inteiro positivo N e calcule o 
+ * somatório dos números de 1 a N.
+ * */
+
+
 unsigned long long int sumValues(unsigned long long int n){
     if(n<=1)
         return 1;
