@@ -38,4 +38,9 @@ void Max_heapfy(int* a, int i){
 
 int main(){
     int a[] = {2,8,4,1,7,14,16,10,9,3};
+    Max_heapfy(a, 10);
+    for(int i=0; i<10; i++){
+        printf("%i, ", a[i]);
+    }
+        
 }
