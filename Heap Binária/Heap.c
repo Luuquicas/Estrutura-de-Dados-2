@@ -21,12 +21,12 @@ void Max_heapfy(int* a, int i){
     int r = Right(i);
     int largest, aux;
 
-    if(l <= Heap_size(a) && a[l] > a[i])
+    if(l <= 10 && a[l] > a[i])
         largest = l;
     else
         largest = i;
 
-    if(r <= Heap_size(a) && a[r] > a[largest])
+    if(r <= 10 && a[r] > a[largest])
         largest = r;
     
     if(largest != i)
@@ -38,5 +38,4 @@ void Max_heapfy(int* a, int i){
 
 int main(){
     int a[] = {2,8,4,1,7,14,16,10,9,3};
-    
 }
