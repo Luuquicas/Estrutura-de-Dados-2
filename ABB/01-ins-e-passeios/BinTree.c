@@ -46,6 +46,20 @@ _Bool BinTree_insert(BinTree* T, int key){
     return true;
 }
 
+_Bool BinTree_insert_r(TNo** root, TNo* z){
+    int key = z->key;
+    if((*root) == NULL){
+        *root = z;
+        return true;
+    }
+
+    z->p = *root;
+    if(k < (*root)->key)
+        return BinTree_insert_r(&(*root)->left, z);
+    else
+        return BinTree_insert_r(&(*root)->right, z);
+}
+
 void BinTree_preorder(TNo* root){
     if(root){
         printf("%d, ", root->key);
@@ -75,6 +89,11 @@ TNo* BinTree_search_i(BinTree* T, int k){
     while(x != NULL && k != x->key)
         x = (k < x->key) ? x->left : x->right;
     return x;
+}
+
+TNo* BinTree_search_r(TNo* x, int k){
+    if(x == NULL || k == x->key) return x;
+    return BinTree_search_r((k < x->key) ? x->left : x->right, k);
 }
 
 TNo* BinTree_minimum(TNo* x){

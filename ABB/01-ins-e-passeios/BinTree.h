@@ -16,7 +16,11 @@ typedef struct{
 BinTree* BinTree_create();
 TNo* TNo_createNFill(int);
 _Bool BinTree_insert(BinTree*, int);
+_Bool BinTree_insert_r(TNo**, TNo*);
+
 TNo* BinTree_search_i(BinTree*, int);
+TNo* BinTree_search_r(TNo*, int);
+
 TNo* BinTree_minimum(TNo*);
 _Bool BinTree_delete(BinTree*, TNo*);
 
