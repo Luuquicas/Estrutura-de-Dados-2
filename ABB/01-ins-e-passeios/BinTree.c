@@ -67,3 +67,16 @@ void BinTree_posorder(TNo* root){
         printf("%d, ", root->key);
     }
 }
+
+int altura(TNo* root){
+    if(root){
+        int he = altura(root->left);
+        int hd = altura(root->right);
+        if(he < hd) 
+            return hd+1;
+        else
+            return he+1;
+    }else{
+        return -1;
+    }
+}

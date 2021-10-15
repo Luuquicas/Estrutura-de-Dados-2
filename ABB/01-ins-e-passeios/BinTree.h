@@ -20,5 +20,6 @@ _Bool BinTree_insert(BinTree*, int);
 void BinTree_preorder(TNo*);
 void BinTree_inorder(TNo*);
 void BinTree_posorder(TNo*);
+int altura(TNo*);
 
 #endif
