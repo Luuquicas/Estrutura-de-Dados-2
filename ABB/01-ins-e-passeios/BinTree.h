@@ -16,10 +16,12 @@ typedef struct{
 BinTree* BinTree_create();
 TNo* TNo_createNFill(int);
 _Bool BinTree_insert(BinTree*, int);
+TNo* BinTree_search_i(BinTree*, int);
+TNo* BinTree_minimum(TNo*);
+_Bool BinTree_delete(BinTree*, TNo*);
 
 void BinTree_preorder(TNo*);
 void BinTree_inorder(TNo*);
 void BinTree_posorder(TNo*);
-int altura(TNo*);
 
 #endif

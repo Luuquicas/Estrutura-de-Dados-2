@@ -1,6 +1,8 @@
 #include "BinTree.h"
 #include <stdio.h>
 #include <stdlib.h>
+//Headers das auxiliares
+void Transplant(BinTree*, TNo*, TNo*);
 
 BinTree* BinTree_create(){
     BinTree *tree = malloc(sizeof(BinTree));
@@ -68,15 +70,48 @@ void BinTree_posorder(TNo* root){
     }
 }
 
-int altura(TNo* root){
-    if(root){
-        int he = altura(root->left);
-        int hd = altura(root->right);
-        if(he < hd) 
-            return hd+1;
+TNo* BinTree_search_i(BinTree* T, int k){
+    TNo* x = T->root;
+    while(x != NULL && k != x->key)
+        x = (k < x->key) ? x->left : x->right;
+    return x;
+}
+
+TNo* BinTree_minimum(TNo* x){
+    while(x->left)
+        x = x->left;
+    return x;
+}
+
+void Transplant(BinTree* T, TNo* u, TNo* v){
+    if(u->p == NULL)
+        T->root = v;
+    else
+        if(u == u->p->left)
+            u->p->left = v;
         else
-            return he+1;
-    }else{
-        return -1;
+            u->p->right = v;
+    if(v)
+        v->p = u->p;
+}
+
+_Bool BinTree_delete(BinTree* T, TNo* z){
+    if(T == NULL || T->root == NULL) return false;
+    if(z->left == NULL)
+        Transplant(T, z, z->right);
+    else if(z->right == NULL)
+        Transplant(T, z, z->left);
+    else{
+        TNo* y = BinTree_minimum(z->right);
+        if(y->p != z){
+            Transplant(T, y, y->right);
+            y->right = z->right;
+            y->right->p = y;
+        }
+        Transplant(T, z, y);
+        y->left = z->left;
+        y->left->p = y;
     }
+    free(z);
+    return true;
 }
