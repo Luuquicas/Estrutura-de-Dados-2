@@ -54,7 +54,7 @@ _Bool BinTree_insert_r(TNo** root, TNo* z){
     }
 
     z->p = *root;
-    if(k < (*root)->key)
+    if(z < (*root)->key)
         return BinTree_insert_r(&(*root)->left, z);
     else
         return BinTree_insert_r(&(*root)->right, z);
