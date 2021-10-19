@@ -47,14 +47,14 @@ _Bool BinTree_insert(BinTree* T, int key){
 }
 
 _Bool BinTree_insert_r(TNo** root, TNo* z){
-    int key = z->key;
+    int k = z->key;
     if((*root) == NULL){
         *root = z;
         return true;
     }
 
     z->p = *root;
-    if(z < (*root)->key)
+    if(k < (*root)->key)
         return BinTree_insert_r(&(*root)->left, z);
     else
         return BinTree_insert_r(&(*root)->right, z);

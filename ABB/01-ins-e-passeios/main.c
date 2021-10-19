@@ -12,13 +12,13 @@ void PrintTree(BinTree* tree){
 }
 
 int main(){
-    int v[] = {10, 1, 2, 14, 16, 13};
+    int v[] = {12,5,6,10,1};
     BinTree *tree = BinTree_create();
-    for(int i=0; i<6; i++)
-        if(!BinTree_insert(&(tree->root), TNo_createNFill(v[i])))
+    for(int i=0; i<5; i++)
+        if(!BinTree_insert(tree, v[i]))
             printf("Não consegui inserir o v[%d] = %d\n", i, v[i]);
     PrintTree(tree);
-    int key = 14;
+    int key = 10;
     TNo* result = BinTree_search_r(tree->root, key);
     if(result){
         printf("Found %d\n", key);
