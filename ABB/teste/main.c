@@ -6,12 +6,12 @@ int main(){
     char input[] = "(12(5()(6))(10()(1)))";
     char *pt;
     int i=0;
-    char v[10];
+    char *v[] = { };
 
     pt = strtok(input, "()");
     while(pt){
         printf("Token: %s\n", pt);
-        strcpy(&v[i], pt);
+        strcpy(v[i], pt);
         i++;
         pt = strtok(NULL, "()");
     }
