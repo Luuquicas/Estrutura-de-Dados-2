@@ -1,22 +1,19 @@
+#include "BinTree.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-int main(){
-    char input[] = "(12(5()(6))(10()(1)))";
-    char *pt;
-    int i=0;
-    char *v[] = { };
+void PrintTree(BinTree* tree){
+    printf("Preorder: ");
+    BinTree_preorder(tree->root);
+    printf("\nInorder: ");
+    BinTree_inorder(tree->root);
+    putchar('\n');
+}
 
-    pt = strtok(input, "()");
-    while(pt){
-        printf("Token: %s\n", pt);
-        strcpy(v[i], pt);
-        i++;
-        pt = strtok(NULL, "()");
-    }
-    for(int j=0; j<5; j++){
-        printf("v[%i] = %c\n", i, v[i]);
-    }
+int main(){
+    char s[] = "(7(5()(6))(10()(12)))";
+    BinTree* t = str_to_tree(s);
+    PrintTree(t);
     return 0;
 }
