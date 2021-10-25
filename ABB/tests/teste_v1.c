@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main(){
-    char s[] = "11(11)1(11)";
+    char s[] = "(7(5()(6))(10()(12)))";
     int len = strlen(s);
     char s2[len];
     int cont = 0;
