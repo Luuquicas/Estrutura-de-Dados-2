@@ -3,6 +3,19 @@
 
 int main(){
     char a[] = "(7(5()(6))(10()(12)))";
-    int num = strtol(a, NULL, 10);
-    printf("num == %i\n", num);
+    int i = 0;
+    while(a){
+        if(a[i] == '('){
+            printf("Abriu o colchete!\n");
+            int j = i+1;
+            while(a[j] != '(' && a[j] != ')'){
+                printf("a[j] = %c\n",a[j]);
+                j++;
+            }
+        }
+        if(a[i] == ')'){
+            printf("Fechou o colchete\n");
+        }
+        i++;
+    }
 }
