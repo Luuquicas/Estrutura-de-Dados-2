@@ -136,22 +136,6 @@ _Bool BinTree_delete(BinTree* T, TNo* z){
     return true;
 }
 
-char* substring(char str[], int start, int end) {
-    int i, j;
-    char *sub; 
-     
-    if(start >= end || end > strlen(str)) {
-        return NULL;
-    }
-     
-    sub = (char *) malloc(sizeof(char) * (end - start + 1));
-     
-    for(i = start, j = 0; i < end; i++, j++) {
-        sub[j] = str[i];
-    }
-     
-    sub[j] = '&#092;&#048;';
-     
-    return sub;
+BinTree* str_to_tree(char* s, int* v, TNo* root, int i){
+    
 }
-

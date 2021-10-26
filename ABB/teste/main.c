@@ -12,8 +12,29 @@ void PrintTree(BinTree* tree){
 }
 
 int main(){
-    char s[] = "(7(5()(6))(10()(12)))";
-    BinTree* t = str_to_tree(s);
-    PrintTree(t);
+    BinTree* T = BinTree_create();
+    char palavra[] = "(12(5()(6))(10()(1)))";
+    int len = strlen(palavra);
+    char *pt;
+    int v[10];
+    char v1[len][len];
+    int i = 0,j = 0;
+
+    pt = strtok(palavra, "()");
+    while(pt){
+        strcpy(v1[i], pt);
+        pt = strtok(NULL, "()");
+        i++;
+    }
+
+    for(i=0; i<5; i++){
+        v[i] = atoi(v1[i]);
+    }
+
+    PrintTree(T);
+    for(i=0; i<5; i++){
+        printf("%i\n", v[i]);
+    }
+   
     return 0;
 }
