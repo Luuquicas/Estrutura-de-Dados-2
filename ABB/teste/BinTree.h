@@ -24,7 +24,7 @@ TNo* BinTree_search_r(TNo*, int);
 
 TNo* BinTree_minimum(TNo*);
 _Bool BinTree_delete(BinTree*, TNo*);
-char* substring(char[], int, int);
+void str_to_tree(TNo**, TNo*, int);
 
 void BinTree_preorder(TNo*);
 void BinTree_inorder(TNo*);

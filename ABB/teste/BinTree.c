@@ -136,6 +136,6 @@ _Bool BinTree_delete(BinTree* T, TNo* z){
     return true;
 }
 
-BinTree* str_to_tree(char* s, int* v, TNo* root, int i){
-    
+void str_to_tree(TNo** root, TNo* z, int info){
+
 }

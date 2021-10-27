@@ -12,6 +12,7 @@ void PrintTree(BinTree* tree){
 }
 
 int main(){
+    BinTree* T = BinTree_create();
     char line[] = "(12(5()(6))(10()(1)))";
     int len = strlen(line);
     char *pt;
