@@ -4,14 +4,14 @@
 
 int main(){
 
-    char palavra[] = "(7(5()(6))(10()(12)))";
-    int len = strlen(palavra);
+    char line[] = "(7(5()(6))(10()(12)))";
+    int len = strlen(line);
     char *pt;
     int v[10];
     char v1[len][len];
     int i = 0;
 
-    pt = strtok(palavra, "()");
+    pt = strtok(line, "()");
     while(pt){
         strcpy(v1[i], pt);
         pt = strtok(NULL, "()");
