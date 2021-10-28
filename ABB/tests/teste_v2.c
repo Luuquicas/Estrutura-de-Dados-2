@@ -8,13 +8,13 @@ int main(){
     int len = strlen(line);
     char *pt;
     int v[10];
-    char v1[len][len];
+    char v1[50][50];
     int i = 0;
 
-    pt = strtok(line, "()");
+    pt = strtok(line, "(");
     while(pt){
         strcpy(v1[i], pt);
-        pt = strtok(NULL, "()");
+        pt = strtok(NULL, "(");
         i++;
     }
 
@@ -22,8 +22,8 @@ int main(){
         v[i] = atoi(v1[i]);
     }
 
-    for(int i = 0; i<5; i++){
-        printf("num %i: %i\n", i, v[i]);
+    for(int i = 0; i<7; i++){
+        printf("num %i: %s\n", i, v1[i]);
     }
     return 0;
 }
