@@ -12,17 +12,14 @@ int main(){
 
     pt = strtok(line, "()");
     while(pt){
-        strcpy(v1[i], pt);
+        v[i] = atoi(pt);
         pt = strtok(NULL, "()");
         i++;
-    }
-
-    for(i=0; i<5; i++){
-        v[i] = atoi(v1[i]);
     }
 
     for(int i = 0; i<5; i++){
         printf("num %i: %i\n", i, v[i]);
     }
+
     return 0;
 }
