@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+// entrada 1: (7(5()(6))(10()(12)))
+// entrada 2: (12(5()(6))(10()(1)))
+
 void PrintTree(BinTree* tree){
     printf("Preorder: ");
     BinTree_preorder(tree->root);
@@ -12,22 +15,13 @@ void PrintTree(BinTree* tree){
 }
 
 int main(){
-    BinTree* T = BinTree_create();
-    char line[] = "(12(5()(6))(10()(1)))";
-    int len = strlen(line);
-    char *pt;
-    int v[10];
-    char v1[len][len];
-    int i = 0;
-    pt = strtok(line, "()");
-    while(pt){
-        strcpy(v1[i], pt);
-        pt = strtok(NULL, "()");
-        i++;
+    BinTree* tree = BinTree_create();
+    int v[7] = {12,5,0,6,10,1};
+    for(int i=0; i<7; i++){
+        if(!BinTree_insert(tree, v[i])){
+            printf("Não consegui inserir o nó: %i\n", v[i]);
+        }
     }
-    for(i=0; i<5; i++){
-        v[i] = atoi(v1[i]);
-    }
-
+    PrintTree(tree);
     return 0;
 }

@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// correta
+
 int main(){
 
     char line[] = "(7(5()(6))(10()(12)))";

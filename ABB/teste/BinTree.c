@@ -55,15 +55,15 @@ _Bool BinTree_insert_r(TNo** root, TNo* z){
     }
 
     z->p = *root;
-    if(k < (*root)->key)
-        return BinTree_insert_r(&(*root)->left, z);
-    else
-        return BinTree_insert_r(&(*root)->right, z);
+    
+    return BinTree_insert_r(&(*root)->left, z);
+    return BinTree_insert_r(&(*root)->right, z);
 }
 
 void BinTree_preorder(TNo* root){
     if(root){
-        printf("%d, ", root->key);
+        if(root->key != 0)
+            printf("%d, ", root->key);
         BinTree_preorder(root->left);
         BinTree_preorder(root->right);
     }
@@ -72,7 +72,8 @@ void BinTree_preorder(TNo* root){
 void BinTree_inorder(TNo* root){
     if(root){
         BinTree_inorder(root->left);
-        printf("%d, ", root->key);
+        if(root->key != 0)
+            printf("%d, ", root->key);
         BinTree_inorder(root->right);
     }
 }
@@ -136,6 +137,3 @@ _Bool BinTree_delete(BinTree* T, TNo* z){
     return true;
 }
 
-void str_to_tree(TNo** root, TNo* z, int info){
-
-}
