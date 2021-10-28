@@ -6,22 +6,27 @@
 // entrada 1: (7(5()(6))(10()(12)))
 // entrada 2: (12(5()(6))(10()(1)))
 
-void PrintTree(BinTree* tree){
-    printf("Preorder: ");
-    BinTree_preorder(tree->root);
-    printf("\nInorder: ");
-    BinTree_inorder(tree->root);
-    putchar('\n');
+void strToInt(char s[], int v[]){
+    char *pt = strtok(s, "()");
+    int i = 0;
+    while(pt){
+        v[i] = atoi(pt);
+        pt = strtok(NULL, "()");
+        i++;
+    }
 }
 
 int main(){
     BinTree* tree = BinTree_create();
-    int v[7] = {12,5,0,6,10,1};
-    for(int i=0; i<7; i++){
-        if(!BinTree_insert(tree, v[i])){
-            printf("Não consegui inserir o nó: %i\n", v[i]);
-        }
+    char line[] = "(12(5()(6))(10()(1)))";
+    int v[10];
+    int i = 0,j = 0;
+
+    strToInt(line, v);
+
+    while(line[i] != '\0'){
+        
+       i++;
     }
-    PrintTree(tree);
     return 0;
 }

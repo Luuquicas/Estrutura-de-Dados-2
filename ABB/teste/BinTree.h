@@ -14,9 +14,7 @@ typedef struct{
 }BinTree;
 
 BinTree* BinTree_create();
-
 TNo* TNo_createNFill(int);
-TNo* TNo_createNFill_N();
 _Bool BinTree_insert(BinTree*, int);
 _Bool BinTree_insert_r(TNo**, TNo*);
 
@@ -25,10 +23,11 @@ TNo* BinTree_search_r(TNo*, int);
 
 TNo* BinTree_minimum(TNo*);
 _Bool BinTree_delete(BinTree*, TNo*);
-void str_to_tree(TNo**, TNo*, int);
 
 void BinTree_preorder(TNo*);
 void BinTree_inorder(TNo*);
 void BinTree_posorder(TNo*);
+void PrintTree(BinTree*);
+
 
 #endif
