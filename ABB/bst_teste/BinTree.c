@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 //Headers das auxiliares
 void Transplant(BinTree*, TNo*, TNo*);
 
@@ -134,4 +135,27 @@ _Bool BinTree_delete(BinTree* T, TNo* z){
     }
     free(z);
     return true;
+}
+
+TNo* str_to_tree(char *s, int *v){
+    int key, i = 0, j = 0;
+    bool left;
+    TNo* root = NULL;
+    if(s[i] == ')')
+        return root;
+    else{
+        key = v[j];
+        root = TNo_createNFill(v[j]);
+        i++;
+        j++;
+        if(s[i] == ')')
+            return root;
+        else if(s[i] == '('){
+            if(root->left = str_to_tree(s,v))
+                left = true;
+            if(left == true)
+                root->right = str_to_tree(s,v);
+        }
+    }
+    return root;
 }

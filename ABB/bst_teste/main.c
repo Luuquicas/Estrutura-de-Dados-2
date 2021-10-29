@@ -29,9 +29,7 @@ int main(){
         i++;
     }
     
-    for(int j=0; j<i; j++)
-        if(!BinTree_insert(tree, v[j]))
-            printf("Não consegui inserir o v[%d] = %d\n", j, v[j]);
+    tree->root = str_to_tree(line, v);
     PrintTree(tree);
     return 0;
 }
