@@ -10,22 +10,16 @@ int main(){
     int len = strlen(line);
     char *pt;
     int v[10];
-    char v1[50][50];
+    char v1[len];
     int i = 0;
 
-    pt = strtok(line, "(");
+    pt = strtok(line, "1234567890");
     while(pt){
-        strcpy(v1[i], pt);
-        pt = strtok(NULL, "(");
+        strcat(v1, pt);
+        pt = strtok(NULL, "1234567890");
         i++;
     }
+    printf("%s", v1);
 
-    for(i=0; i<5; i++){
-        v[i] = atoi(v1[i]);
-    }
-
-    for(int i = 0; i<7; i++){
-        printf("num %i: %s\n", i, v1[i]);
-    }
     return 0;
 }

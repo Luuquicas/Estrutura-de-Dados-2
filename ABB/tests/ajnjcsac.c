@@ -6,13 +6,16 @@
 // entrada 2: (12(5()(6))(10()(1)))
 
 int main(){
-    char line[4096];
-    fgets(line, 4086, stdin);
-    int i = 0;
-    while(line[i] != '\0'){
+    char line[] = "(12(5()(6))(10()(1)))";
+    int len = strlen(line);
+    int i = 0, j = 0;
+    char v1[10][10];
+
+    while(i <= len){
+        
         i++;
     }
-    int tam = i;
-    printf("tam: %i", tam);
+
+    printf("string: %s", v1);
     return 0;
 }

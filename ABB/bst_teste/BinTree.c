@@ -137,24 +137,19 @@ _Bool BinTree_delete(BinTree* T, TNo* z){
     return true;
 }
 
-TNo* str_to_tree(char *s, int *v){
-    int key, i = 0, j = 0;
-    bool left;
+TNo* str_to_tree(char *s, int i, int v[]){
     TNo* root = NULL;
-    if(s[i] == ')')
+    int j = 0, x = i;
+    if(s[x] == ')')
         return root;
-    else{
-        key = v[j];
+    else if(s[x] == '('){
         root = TNo_createNFill(v[j]);
-        i++;
         j++;
-        if(s[i] == ')')
+        if(s[x+1] == ')')
             return root;
-        else if(s[i] == '('){
-            if(root->left = str_to_tree(s,v))
-                left = true;
-            if(left == true)
-                root->right = str_to_tree(s,v);
+        else if(s[x+1] == '('){
+            root->left = str_to_tree(s, x, v);
+            root->right = str_to_tree(s,x,v);
         }
     }
     return root;
