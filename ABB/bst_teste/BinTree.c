@@ -169,21 +169,19 @@ void return_int(char* s, int *v){
     }
 }
 
-TNo* str_to_tree(char* s, int i, int* v){
+TNo* str_to_tree(char* s, int i, int* v, int j){
     TNo* root = NULL;
-    int j = 0, x = i;
-    if(s[x] == ')')
+    if(s[i] == ')')
         return root;
-    else if(s[x] == '('){
+    else if(s[i] == '('){
         root = TNo_createNFill(v[j]);
-        j++;
-        if(s[x+1] == ')')
+        if(s[i+1] == ')')
             return root;
-        else if(s[x+1] == '('){
+        else if(s[i+1] == '('){
             if(root->left == NULL)
-                root->left = str_to_tree(s, x, v);
-            else if(root->right == NULL)
-                root->right = str_to_tree(s,x,v);
+                root->left = str_to_tree(s, i+1, v, j+1);
+            if(root->right == NULL)
+                root->right = str_to_tree(s, i+2, v, j+2);
         }
     }
     return root;

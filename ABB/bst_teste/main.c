@@ -12,7 +12,10 @@ int main(){
     char line[] = "(12(5()(6))(10()(1)))";
     int v[5];
     char brackets[14];
+    BinTree* tree = BinTree_create();
     return_brackets(line, brackets);
     return_int(line, v);
+    tree->root = str_to_tree(brackets, 0, v, 0);
+    PrintTree(tree);
     return 0;
 }

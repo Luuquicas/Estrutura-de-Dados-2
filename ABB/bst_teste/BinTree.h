@@ -15,7 +15,7 @@ typedef struct{
 
 BinTree* BinTree_create();
 TNo* TNo_createNFill(int);
-TNo* str_to_tree(char*, int, int*);
+TNo* str_to_tree(char*, int, int*, int);
 _Bool BinTree_insert(BinTree*, int);
 _Bool BinTree_insert_r(TNo**, TNo*);
 
