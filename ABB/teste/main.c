@@ -23,10 +23,8 @@ int main(){
     int i = 0,j = 0;
 
     strToInt(line, v);
-
-    while(line[i] != '\0'){
-        
-       i++;
+    for(i=0; i<10; i++){
+        printf("%d, ", v[i]);
     }
     return 0;
 }

@@ -86,6 +86,14 @@ void BinTree_posorder(TNo* root){
     }
 }
 
+void PrintTree(BinTree* tree){
+    printf("Preorder: ");
+    BinTree_preorder(tree->root);
+    printf("\nInorder: ");
+    BinTree_inorder(tree->root);
+    putchar('\n');
+}
+
 TNo* BinTree_search_i(BinTree* T, int k){
     TNo* x = T->root;
     while(x != NULL && k != x->key)
@@ -137,7 +145,31 @@ _Bool BinTree_delete(BinTree* T, TNo* z){
     return true;
 }
 
-TNo* str_to_tree(char *s, int i, int v[]){
+void return_brackets(char* s, char* v){
+    char *bracket;
+    int i = 0, j = 0;
+
+    bracket = strchr(s, '(');
+    while(s[i] != '\0'){
+        if(*(bracket+i) == '(' || *(bracket+i) == ')'){
+            v[j] = *(bracket+i);
+            j++;
+        }
+        i++;
+    }
+}
+
+void return_int(char* s, int *v){
+    char *pt = strtok(s, "()");
+    int i = 0;
+    while(pt){
+        v[i] = atoi(pt);
+        pt = strtok(NULL, "()");
+        i++;
+    }
+}
+
+TNo* str_to_tree(char* s, int i, int* v){
     TNo* root = NULL;
     int j = 0, x = i;
     if(s[x] == ')')
@@ -148,8 +180,10 @@ TNo* str_to_tree(char *s, int i, int v[]){
         if(s[x+1] == ')')
             return root;
         else if(s[x+1] == '('){
-            root->left = str_to_tree(s, x, v);
-            root->right = str_to_tree(s,x,v);
+            if(root->left == NULL)
+                root->left = str_to_tree(s, x, v);
+            else if(root->right == NULL)
+                root->right = str_to_tree(s,x,v);
         }
     }
     return root;
