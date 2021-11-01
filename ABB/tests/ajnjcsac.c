@@ -20,6 +20,19 @@ void return_brackets(char* s, char v[]){
     }
 }
 
+int quant_alfa(char *s){
+    int i = 0;
+    int cont = 0;
+    while(s[i] != '\0'){
+        if(s[i] == '(' || s[i] == ')'){
+            cont++;
+        }
+        i++;
+    }
+    return cont;
+}
+
+
 int main(){
     char *pt, line[] = "(12(5()(6))(10()(1)))";
     int i = 0, cont = 0;
@@ -32,5 +45,7 @@ int main(){
         i++;
     }
     printf("cont = %i", i);
+    int alfa = quant_alfa(line);
+    printf("\nalfa = %d", alfa);
     return 0;
 }
